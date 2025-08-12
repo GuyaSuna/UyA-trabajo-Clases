@@ -8,128 +8,93 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="text-center">Welcome</h1>
-      <p class="lead">Este sitio está hecho con Bootstrap</p>
-      <button class="btn btn-primary">Principal</button>
-      <button class="btn btn-secondary">Secundario</button>
-      <button class="btn btn-success">Éxito</button>
-      <button class="btn btn-danger">Peligro</button>
-      <button class="btn btn-outline-dark">Borde</button>
-    </div>
-    <div class="accordion" id="accordionExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
-          >
-            Accordion Item #1
-          </button>
-        </h2>
-        <div
-          id="collapseOne"
-          class="accordion-collapse collapse show"
-          aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is
-            shown by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseTwo"
-            aria-expanded="false"
-            aria-controls="collapseTwo"
-          >
-            Accordion Item #2
-          </button>
-        </h2>
-        <div
-          id="collapseTwo"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingTwo"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the second item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Accordion Item #3
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-8">8 columnas</div>
-        <div class="col-4">4 columnas</div>
-      </div>
-
+    <style>
+      .img-tecno {
+        width: 1,5rem;
+        height: 1,5rem;
+      }
       
-  <div  class="mx-auto " style="width: 200px;">
-    <p class="mx-auto" style="width: 2px;">Aloha</p>
+    </style>
+  </head>
+  <header>
+    
+    
+     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
+      
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ZONATECNO<img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" alt="" width="40"
+      height="40" class="d-inline-block align-text-top"></a>
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Casa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Consolas</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Juegos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+  </header>
+  <body class="bg-primary bg-gradient">
+    <div></div>
+    <h1 class="text-center bg-">Todo Sobre Consolas</h1>
+    
+    <div class=" container mt-4">
+<div class="container mt-4">
+   <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+  <img src="https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Ps5</h5>
+    <p class="card-text">Ultima consola lanzada por Sony</p>
+    <a href="#" class="btn btn-primary">Más Info</a>
   </div>
 </div>
-<div class="bg-primary text-white p-3">Fondo azul</div>
-<div class="bg-success text-white p-3">Fondo verde</div>
-<div class="bg-warning text-dark p-3">Fondo amarillo</div>
-<div class="bg-transparent text-black p-3">Fondo rojo</div>
-
+</div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+  <img src="https://http2.mlstatic.com/D_NQ_NP_623559-MLA74084946933_012024-O.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Xbox Series X</h5>
+    <p class="card-text">Ultimo lanzamiento de Microsoft en Consolas.</p>
+    <a href="#" class="btn btn-primary">Más Info</a>
+  </div>
+  </div>
+  </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Wii_console.png/1200px-Wii_console.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Wii</h5>
+    <p class="card-text">Consola Accesible</p>
+    <a href="#" class="btn btn-primary">Más info</a>
+  </div>
+</div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -137,4 +102,17 @@
       crossorigin="anonymous"
     ></script>
   </body>
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p class="mb-1">
+      Contacto: 
+      <a href="mailto:contacto@tudominio.com" class="text-info">zonatecno@gmail.com</a>
+    </p>
+    <p class="mb-1">
+      Teléfono: 
+      <a href="tel:+1234567890" class="text-info">099 543 983</a>
+    </p>
+    <p class="mb-0">&copy; 2025 Tu Empresa. Todos los derechos reservados.</p>
+  </div>
+</footer>
 </html>
