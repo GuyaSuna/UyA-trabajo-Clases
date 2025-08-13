@@ -11,6 +11,31 @@
     />
   </head>
   <body class="bg-light">
+    <header class="navbar navbar-expand-lg bg-light border-bottom">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="index.html">Mi Tienda</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMain"
+          aria-controls="navMain"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav id="navMain" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Productos</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <div class="container py-5">
       <h1 class="mb-4">Ejemplos de Tooltip y Modal</h1>
 
@@ -36,7 +61,7 @@
                     data-bs-toggle="tooltip"
                     data-bs-trigger="click"
                     data-bs-placement="top"
-                    title="Este producto A es ideal para comenzar."
+                    title="Este producto es ideal para comenzar."
                   >
                     Ver más (Tooltip)
                   </button>
@@ -55,7 +80,7 @@
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Producto B</h5>
                 <p class="card-text text-muted">
-                  Descripción corta del producto B.
+                  Descripción corta del producto.
                 </p>
                 <div class="mt-auto">
                   <button
@@ -82,7 +107,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="cardBModalLabel">
-                    Detalle de Producto B
+                    Detalle de Producto
                   </h1>
                   <button
                     type="button"
@@ -93,7 +118,7 @@
                 </div>
                 <div class="modal-body">
                   <p>
-                    Aquí puedes colocar un detalle más largo del producto B, con
+                    Aquí puedes colocar un detalle más largo del producto, con
                     especificaciones, precios, y hasta formularios.
                   </p>
                   <ul>
@@ -118,18 +143,18 @@
           <div class="col-12 col-md-4">
             <div class="card h-100 shadow-sm">
               <img
-                src="https://cdn.pixabay.com/photo/2023/03/16/08/42/camping-7856198_640.jpg"
+                src="image.png"
                 class="card-img-top"
                 alt="Imagen ejemplo 3"
               />
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Producto C</h5>
                 <p class="card-text text-muted">
-                  Descripción corta del producto C.
+                  Descripción corta del producto.
                 </p>
                 <div class="mt-auto">
                   <a href="detalle.html" class="btn btn-outline-dark">
-                    Ver más (Página aparte)
+                    Ver más
                   </a>
                 </div>
               </div>
@@ -138,15 +163,31 @@
         </div>
       </section>
     </div>
-
+    <footer class="bg-light border-top">
+      <div
+        class="container py-3 d-flex flex-column flex-sm-row align-items-center justify-content-between"
+      >
+        <small class="tw-bold">Mi Tienda. Nahuel B).</small>
+        <ul class="nav small">
+          <li class="nav-item">
+            <a class="nav-link px-2 text-muted" href="#">Privacidad</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-2 text-muted" href="#">Términos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-2 text-muted" href="#">Ayuda</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-      const tooltipTriggerList = [
-        ...document.querySelectorAll('[data-bs-toggle="tooltip"]'),
-      ];
-      tooltipTriggerList.forEach((el) => {
-        new bootstrap.Tooltip(el);
+      var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
       });
     </script>
   </body>
