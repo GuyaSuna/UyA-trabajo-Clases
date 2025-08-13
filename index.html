@@ -1,143 +1,576 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap</title>
+    <title>Le Sommelier - Gastronomía de Excelencia</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-gold: #c8a97e;
+        --secondary-gold: #e6d5b8;
+        --dark-wine: #722f37;
+        --light-wine: #9e5a5f;
+        --dark-bg: #1a1a1a;
+        --light-bg: #f8f5f0;
+      }
+      
+      body {
+        background-color: var(--light-bg);
+        color: #333;
+        min-height: 100vh;
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      .navbar {
+        background-color: var(--dark-bg);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      
+      .navbar-brand {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary-gold) !important;
+        letter-spacing: 1px;
+      }
+      
+      .card {
+        background: white;
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: #333;
+        margin-bottom: 20px;
+        border-top: 4px solid var(--primary-gold);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+      }
+      
+      .card img {
+        border-radius: 0;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        filter: brightness(0.95);
+      }
+      
+      .card:hover img {
+        transform: scale(1.03);
+        filter: brightness(1);
+      }
+      
+      .oferta {
+        color: var(--dark-wine);
+        font-weight: bold;
+        font-size: 18px;
+        margin: 10px 0;
+        font-family: 'Playfair Display', serif;
+      }
+      
+      footer {
+        background-color: var(--dark-bg);
+        color: var(--secondary-gold);
+        padding: 30px 0;
+        text-align: center;
+        margin-top: 60px;
+      }
+      
+      h1 {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        color: var(--dark-wine) !important;
+        margin: 40px 0 30px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      
+      .btn-primary {
+        background-color: var(--dark-wine);
+        border: none;
+        padding: 10px 25px;
+        border-radius: 2px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        width: calc(100% - 30px);
+        margin: 0 15px 15px;
+      }
+      
+      .btn-primary:hover {
+        background-color: var(--light-wine);
+        transform: translateY(-2px);
+      }
+      
+      .search-btn {
+        background-color: var(--primary-gold);
+        color: white;
+        width: 100px;
+        height: 40px;
+      }
+      
+      .price-tag {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--dark-wine);
+        font-family: 'Playfair Display', serif;
+        margin: 15px 0;
+      }
+      
+      .card-title {
+        font-weight: 700;
+        color: var(--dark-bg);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        margin-top: 10px;
+      }
+      
+      .card-text {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding-bottom: 0;
+      }
+      
+      .card-content {
+        flex-grow: 1;
+      }
+      
+      .welcome-card {
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin-bottom: 40px;
+        color: white;
+        text-align: center;
+        min-height: 300px;
+      }
+      
+      .welcome-title {
+        font-size: 2.2rem;
+        color: white;
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-family: 'Playfair Display', serif;
+      }
+      
+      .welcome-card p {
+        max-width: 600px;
+        margin: 0 auto 20px;
+        font-size: 17px;
+      }
+      
+      .social-icons {
+        margin-top: 30px;
+      }
+      
+      .social-icons a {
+        color: var(--primary-gold);
+        font-size: 1.3rem;
+        margin: 0 12px;
+        transition: all 0.3s ease;
+      }
+      
+      .social-icons a:hover {
+        color: white;
+        transform: scale(1.2);
+      }
+      
+      .logo-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--primary-gold);
+      }
+      
+      .nav-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 50%, transparent 100%);
+        margin: 10px 0 30px;
+      }
+      
+      .menu-category {
+        font-family: 'Playfair Display', serif;
+        color: var(--dark-wine);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .menu-category:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 2px;
+        background-color: var(--primary-gold);
+      }
+      
+      @media (max-width: 1200px) {
+        .welcome-title {
+          font-size: 2rem;
+        }
+      }
+      
+      @media (max-width: 992px) {
+        .navbar-brand {
+          font-size: 1.8rem;
+        }
+        
+        h1 {
+          font-size: 2.4rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .navbar-brand {
+          font-size: 1.6rem;
+        }
+        
+        h1 {
+          font-size: 2rem;
+        }
+        
+        .welcome-title {
+          font-size: 1.8rem;
+        }
+        
+        .card img {
+          height: 200px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .navbar-brand {
+          font-size: 1.4rem;
+        }
+        
+        h1 {
+          font-size: 1.8rem;
+        }
+        
+        .welcome-title {
+          font-size: 1.5rem;
+        }
+        
+        .card img {
+          height: 180px;
+        }
+        
+        .price-tag {
+          font-size: 1.3rem;
+        }
+        
+        footer .row > div {
+          margin-bottom: 20px;
+        }
+        
+        .welcome-card {
+          padding: 30px 20px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <h1 class="text-center">Bienvenidos</h1>
-      <p class="lead">Este sitio está hecho con trapp</p>
-      <button class="btn btn-primary">Principal</button>
-      <button class="btn btn-secondary">Secundario</button>
-      <button class="btn btn-success">Éxito</button>
-      <button class="btn btn-danger">Peligro</button>
-      <button class="btn btn-outline-dark">Borde</button>
-    </div>
-    <div class="accordion" id="accordionExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
-          >
-            Accordion Item #1
-          </button>
-        </h2>
-        <div
-          id="collapseOne"
-          class="accordion-collapse collapse show"
-          aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is
-            shown by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseTwo"
-            aria-expanded="false"
-            aria-controls="collapseTwo"
-          >
-            Accordion Item #2
-          </button>
-        </h2>
-        <div
-          id="collapseTwo"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingTwo"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the second item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Accordion Item #3
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-8">8 columnas</div>
-        <div class="col-4">4 columnas</div>
-      </div>
 
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-wine-glass-alt me-2"></i>Le Sommelier
+        </a>
+        <form class="d-flex ms-auto me-3">
+          <input class="form-control me-2" type="search" placeholder="Buscar platillos..." aria-label="Search">
+          <button class="btn btn-primary search-btn" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" class="logo-img" alt="logo">
+      </div>
+    </nav>
+
+    <div class="container my-4">
+      <h1><i class="fas fa-utensils"></i> Nuestra Carta de Temporada <i class="fas fa-wine-bottle"></i></h1>
+      <div class="nav-divider"></div>
       
-  <div  class="mx-auto " style="width: 200px;">
-    <p class="mx-auto" style="width: 2px;">Aloha</p>
-  </div>
-</div>
-<div class="bg-primary text-white p-3">Fondo azul</div>
-<div class="bg-success text-white p-3">Fondo verde</div>
-<div class="bg-warning text-dark p-3">Fondo amarillo</div>
-<div class="bg-transparent text-black p-3">Fondo rojo</div>
+      <!-- Tarjeta de bienvenida -->
+      <div class="row">
+        <div class="col-12">
+          <div class="welcome-card">
+            <h2 class="welcome-title">Experiencia Gastronómica</h2>
+            <p>Descubra una sinfonía de sabores cuidadosamente elaborados por nuestro chef ejecutivo, donde la tradición se encuentra con la innovación en cada plato.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <h3 class="menu-category">Entradas Exquisitas</h3>
+      <div class="row">
+        <!-- Entrada 1 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Foie Gras">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Foie Gras "Truffé"</h5>
+                <p class="card-text">Hígado de pato en terrina con trufa negra de Périgord, reducción de oporto y pan brioche tostado.</p>
+                <p class="price-tag">$28</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entrada 2 con oferta -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Tartar">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Tartar Royale</h5>
+                <p class="card-text">Tartar de wagyu con caviar Oscietra, yema trufada y chips de remolacha.</p>
+                <p class="price-tag">$34</p>
+                <p class="oferta">
+                  <i class="fas fa-gem"></i> SPECIAL CHEF <i class="fas fa-gem"></i><br>
+                  Con copa de champagne +$15
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entrada 3 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Langostinos">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Langostinos "Cristal"</h5>
+                <p class="card-text">Carpaccio de langostinos con caviar, emulsión de cítricos y hierbas del jardín.</p>
+                <p class="price-tag">$26</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entrada 4 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Ravioli">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Ravioli "Alba"</h5>
+                <p class="card-text">Rellenos de ricotta y trufa blanca, espuma de parmesano y mantequilla noisette.</p>
+                <p class="price-tag">$24</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="menu-category">Platos Principales</h3>
+      <div class="row">
+        <!-- Plato 1 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Solomillo">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Solomillo "Rossini"</h5>
+                <p class="card-text">Solomillo de ternera rubia gallega, foie gras, trufa negra y reducción de Madeira.</p>
+                <p class="price-tag">$42</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plato 2 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Pescado">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Rodaballo "Mar y Montaña"</h5>
+                <p class="card-text">Rodaballo salvaje con risotto de setas de temporada y jugo de crustáceos.</p>
+                <p class="price-tag">$38</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plato 3 con oferta -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Cordero">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Carré de Cordero "Provence"</h5>
+                <p class="card-text">Costillar de cordero lechal con ratatouille de verduras y reducción de hierbas provenzales.</p>
+                <p class="price-tag">$36</p>
+                <p class="oferta">
+                  <i class="fas fa-wine-glass-alt"></i> MARIDAJE RECOMENDADO<br>
+                  Rioja Reserva +$12
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plato 4 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Pato">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Magret de Pato "Montmorency"</h5>
+                <p class="card-text">Pato de Challans con cerezas al brandy y puré de patata violeta.</p>
+                <p class="price-tag">$39</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="menu-category">Postres Signature</h3>
+      <div class="row">
+        <!-- Postre 1 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Soufflé">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Soufflé "Grand Marnier"</h5>
+                <p class="card-text">Clásico soufflé al licor de naranja con helado de vainilla Tahití.</p>
+                <p class="price-tag">$14</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Postre 2 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Chocolate">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Fondant "Noir"</h5>
+                <p class="card-text">Corazón líquido de chocolate Valrhona 70% con helado de sal marina.</p>
+                <p class="price-tag">$18</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Postre 3 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Tarta">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Tarte "Citron"</h5>
+                <p class="card-text">Tarta de limón de Menton con merengue italiano y ralladura de lima kaffir.</p>
+                <p class="price-tag">$12</p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Postre 4 con oferta -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://img-3.journaldesfemmes.fr/aHDwiB3X3Ra3FL1fFItkcOCd-BY=/1500x/smart/6f0eba8dd6e54a8287ea03d021de2ba7/ccmcms-jdf/29529390.jpg" class="card-img-top" alt="Cheese">
+            <div class="card-body text-center">
+              <div class="card-content">
+                <h5 class="card-title">Plateau de Fromages</h5>
+                <p class="card-text">Selección de 5 quesos artesanales franceses con compota de higos y nueces caramelizadas.</p>
+                <p class="price-tag">$20</p>
+                <p class="oferta">
+                  <i class="fas fa-wine-glass-alt"></i> CON COPA DE SAUTERNES +$9
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary">Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <footer>
-      hola
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5><i class="fas fa-phone-alt me-2"></i>Reservas</h5>
+            <p>+598 92 975 708</p>
+            <p>reservas@lesommelier.com</p>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5><i class="fas fa-clock me-2"></i>Horario</h5>
+            <p>Martes a Sábado</p>
+            <p>13:30 - 16:00 / 20:30 - 23:30</p>
+          </div>
+          <div class="col-md-4">
+            <h5><i class="fas fa-map-marker-alt me-2"></i>Ubicación</h5>
+            <p>Calle 26</p>
+            <p>70500 Juan Lacaze, Colonia</p>
+          </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(200, 169, 126, 0.2);">
+        <div class="text-center">
+          <p class="mb-0">© 2005 Le Sommelier - Gastronomía de Excelencia</p>
+          <p class="mt-2">5 Estrellas Michelin - Mejor Restaurante de Juan Lacaze</p>
+        </div>
+      </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
